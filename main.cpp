@@ -7,43 +7,126 @@
 #include "ProductoAlimento.h"
 
 int main() {
-    // Cliente y producto básicos
-    Cliente clie_1("Armando", "Rodriguez", "Hernandez", "12/12/2000", "2294046401", "armrodher@gmail.com");
-    Producto prod_1("Sabritas", "Estan muy ricas", 10, "11/11/2024", "Botanas", 15.6);
-
-    std::cout << "Información original:\n" << std::endl;
-    clie_1.mostrar_informacion();
-
-    // Editar la información del cliente
-    clie_1.editar_info("Luis", "Garcia", "Martinez", "01/01/1999", "5555555555", "luisgarcia@example.com");
-
-    // Mostrar información actualizada
-    std::cout << "Información actualizada:\n" << std::endl;
-    clie_1.mostrar_informacion();
-
-    // Crear instancia de Compra
-    Compra compra1(prod_1, clie_1, 3, std::string("12/11/2024"));
-    compra1.mostrar_detalle();
-
-    // Crear instancias de productos de clases derivadas
-    ProductoElectronico prodElectronico("Smartphone", "Smartphone de última generación", 10, "2024-10-01", "Electrónica", 800.0, 24);
-    ProductoAlimento prodAlimenticio("Manzana", "Manzana roja orgánica", 50, "2024-11-01", "Alimentos", 1.5, "2025-01-01");
+    /**
+     * (Uso de entrada del usuario, instancias dinámicas, interacción entre clases)
+     * Descripción:
+     *   - El usuario ingresa datos para crear instancias de Cliente, Producto, ProductoAlimento y ProductoElectronico.
+     *   - Se muestra información ingresada y se prueba la interacción entre las clases.
+     *   - Se realizan cálculos y se muestran detalles dinámicamente.
+     */
     
+    // Variables para capturar datos
+    std::string nombre, apepat, apemat, fecnac, telefo, correo;
+    std::string nompro, despro, fecpro, catego;
+    int canpro, garantia;
+    float cospro;
+    int cantidadCompra;
+    std::string fechaCompra;
+    
+    // --- Capturar datos del cliente ---
+    std::cout << "Ingrese datos del cliente:" << std::endl;
+    std::cout << "Nombre: ";
+    std::getline(std::cin, nombre);
+    std::cout << "Apellido paterno: ";
+    std::getline(std::cin, apepat);
+    std::cout << "Apellido materno: ";
+    std::getline(std::cin, apemat);
+    std::cout << "Fecha de nacimiento (dd/mm/yyyy): ";
+    std::getline(std::cin, fecnac);
+    std::cout << "Teléfono: ";
+    std::getline(std::cin, telefo);
+    std::cout << "Correo: ";
+    std::getline(std::cin, correo);
 
-    // Mostrar detalles de ProductoElectronico
-    std::cout << "\nProducto Electrónico:\n";
-    std::cout << "Nombre: " << prodElectronico.get_nompro() << "\n";
-    std::cout << "Descripción: " << prodElectronico.get_despro() << "\n";
-    std::cout << "Garantía (meses): " << prodElectronico.get_Garantia() << "\n";
-    std::cout << "Costo: $" << prodElectronico.get_cospro() << "\n";
+    Cliente cliente(nombre, apepat, apemat, fecnac, telefo, correo);
 
-    // Mostrar detalles de ProductoAlimenticio
-    std::cout << "\nProducto Alimenticio:\n";
-    std::cout << "Nombre: " << prodAlimenticio.get_nompro() << "\n";
-    std::cout << "Descripción: " << prodAlimenticio.get_despro() << "\n";
-    std::cout << "Fecha de caducidad: " << prodAlimenticio.get_fecha_expiracion() << "\n";
-    std::cout << "Costo: $" << prodAlimenticio.get_cospro() << "\n";
+    // --- Capturar datos de un producto ---
+    std::cout << "\nIngrese datos de un producto genérico:" << std::endl;
+    std::cout << "Nombre del producto: ";
+    std::getline(std::cin, nompro);
+    std::cout << "Descripción: ";
+    std::getline(std::cin, despro);
+    std::cout << "Cantidad disponible: ";
+    std::cin >> canpro;
+    std::cin.ignore(); // Limpiar el buffer de entrada
+    std::cout << "Fecha de producción (dd/mm/yyyy): ";
+    std::getline(std::cin, fecpro);
+    std::cout << "Categoría: ";
+    std::getline(std::cin, catego);
+    std::cout << "Costo: ";
+    std::cin >> cospro;
+    std::cin.ignore(); // Limpiar el buffer de entrada
 
+    Producto producto(nompro, despro, canpro, fecpro, catego, cospro);
+
+    // --- Crear una compra ---
+    std::cout << "\nIngrese detalles de la compra:" << std::endl;
+    std::cout << "Cantidad a comprar: ";
+    std::cin >> cantidadCompra;
+    std::cin.ignore();
+    std::cout << "Fecha de la compra (dd/mm/yyyy): ";
+    std::getline(std::cin, fechaCompra);
+
+    Compra compra(producto, cliente, cantidadCompra, fechaCompra);
+
+    // Mostrar detalles de la compra
+    std::cout << "\n--- Detalles de la compra ---" << std::endl;
+    compra.mostrar_detalle();
+
+    // --- Crear y mostrar detalles de un ProductoElectrónico ---
+    std::cout << "\nIngrese datos de un producto electrónico:" << std::endl;
+    std::cout << "Nombre: ";
+    std::getline(std::cin, nompro);
+    std::cout << "Descripción: ";
+    std::getline(std::cin, despro);
+    std::cout << "Cantidad disponible: ";
+    std::cin >> canpro;
+    std::cin.ignore();
+    std::cout << "Fecha de producción (dd/mm/yyyy): ";
+    std::getline(std::cin, fecpro);
+    std::cout << "Categoría: ";
+    std::getline(std::cin, catego);
+    std::cout << "Costo: ";
+    std::cin >> cospro;
+    std::cout << "Garantía en meses: ";
+    std::cin >> garantia;
+    std::cin.ignore();
+
+    ProductoElectronico productoElectronico(nompro, despro, canpro, fecpro, catego, cospro, garantia);
+
+    std::cout << "\n--- Detalles del Producto Electrónico ---" << std::endl;
+    std::cout << "Nombre: " << productoElectronico.get_nompro() << "\n";
+    std::cout << "Descripción: " << productoElectronico.get_despro() << "\n";
+    std::cout << "Garantía (meses): " << productoElectronico.get_Garantia() << "\n";
+    std::cout << "Costo: $" << productoElectronico.get_cospro() << "\n";
+
+    // --- Crear y mostrar detalles de un ProductoAlimento ---
+    std::string fechaCaducidad;
+    std::cout << "\nIngrese datos de un producto alimenticio:" << std::endl;
+    std::cout << "Nombre: ";
+    std::getline(std::cin, nompro);
+    std::cout << "Descripción: ";
+    std::getline(std::cin, despro);
+    std::cout << "Cantidad disponible: ";
+    std::cin >> canpro;
+    std::cin.ignore();
+    std::cout << "Fecha de producción (dd/mm/yyyy): ";
+    std::getline(std::cin, fecpro);
+    std::cout << "Categoría: ";
+    std::getline(std::cin, catego);
+    std::cout << "Costo: ";
+    std::cin >> cospro;
+    std::cin.ignore();
+    std::cout << "Fecha de caducidad (dd/mm/yyyy): ";
+    std::getline(std::cin, fechaCaducidad);
+
+    ProductoAlimento productoAlimento(nompro, despro, canpro, fecpro, catego, cospro, fechaCaducidad);
+
+    std::cout << "\n--- Detalles del Producto Alimenticio ---" << std::endl;
+    std::cout << "Nombre: " << productoAlimento.get_nompro() << "\n";
+    std::cout << "Descripción: " << productoAlimento.get_despro() << "\n";
+    std::cout << "Fecha de caducidad: " << productoAlimento.get_fecha_expiracion() << "\n";
+    std::cout << "Costo: $" << productoAlimento.get_cospro() << "\n";
 
     return 0;
 }
