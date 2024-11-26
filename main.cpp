@@ -235,7 +235,7 @@ int main() {
         std::cout << "0. Salir\n";
         std::cout << "Seleccione una opción: ";
         std::cin >> opcion;
-        std::cin.ignore();
+        std::cin.ignore(); //Hace que no se considere el salto e linea
 
         switch (opcion) {
             case 1:
