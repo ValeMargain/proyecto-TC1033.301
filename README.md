@@ -8,13 +8,12 @@ Proyecto desarrollado en C++ EasyBuy EasyBuy es un proyecto está diseñado para
 
 Funcionalidad: el programa permite al usuario realizar las siguientes acciones. 
 1. Ingresar cliente:  Permite crear un cliente con sus datos personales (nombre, apellido, fecha de nacimiento, teléfono y correo).
-2. Ingresar producto: Permite crear un producto con su nombre, descripción, precio y cantidad.
-3. Realizar compra: Permite registrar una compra asociando un cliente y un producto con una cantidad específica.
-4. Mostrar compra: Muestra los datos correspondientes a la compra 
-5. Crear producto electrónico:  Permite crear un producto electrónico con su nombre, descripción, precio, cantidad y garantía.
-6. Mostrar producto electrónico: Muestra el producto electrónico que se creo 
-7. Crear producto alimenticio: Permite crear un producto electrónico con su nombre, descripción, precio, cantidad y fecha de caducidad.
-8. Mostrar producto alimenticio: Muestra el producto creado anteriormente. 
+2. Realizar compra: Permite registrar una compra asociando un cliente y un producto con una cantidad específica.
+3. Mostrar compra: Muestra los datos correspondientes a la compra 
+4. Crear producto electrónico:  Permite crear un producto electrónico con su nombre, descripción, precio, cantidad y garantía.
+5. Mostrar producto electrónico: Muestra el producto electrónico que se creo 
+6. Crear producto alimenticio: Permite crear un producto electrónico con su nombre, descripción, precio, cantidad y fecha de caducidad.
+7. Mostrar producto alimenticio: Muestra el producto creado anteriormente. 
 0. Salir: Termina la ejecución
 
 Consideraciones El programa está diseñado para correr en cualquier sistema operativo que soporte C++ estándar.
