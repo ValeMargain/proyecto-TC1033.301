@@ -21,6 +21,8 @@ public:
     std::string fecpro, std::string catego, float cospro)
         : nompro(nompro), despro(despro), canpro(canpro), fecpro(fecpro)
         , catego(catego), cospro(cospro)  {};
+
+  //Llamado de las funciones
   void set_nompro(std::string);
   void set_despro(std::string);
   void set_canpro(int can);

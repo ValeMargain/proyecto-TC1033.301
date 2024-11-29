@@ -1,12 +1,17 @@
 // ProductoAlimento.h
 #include "Producto.h"
 #include <string>
-
+#ifndef PRODUCTOALIMENTO_H
+#define PRODUCTOALIMENTO_H
 class ProductoAlimento : public Producto {
 private:
     std::string fechaExpiracion; // Fecha de caducidad
 
 public:
+    ProductoAlimento() : Producto("", "", 0, "", "", 0.0),
+     fechaExpiracion("") {}
+
+    // Constructor con parámetros
     ProductoAlimento(std::string nompro, std::string despro, int canpro, 
     std::string fecpro, std::string catego, float cospro, 
     std::string fechaExpiracion)
@@ -16,6 +21,7 @@ public:
     std::string get_fecha_expiracion();
     void set_fecha_expiracion(std::string);
     bool va_a_caducar(std::string&);
+    void mostrar();
 
 };
     // Getter para fecha de expiración
@@ -42,3 +48,22 @@ public:
     */
         return fechaActual > fechaExpiracion;
     }
+
+// Método mostrar() dentro de la clase ProductoElectronico
+void ProductoAlimento::mostrar()  {
+     /**
+        * Recibe:
+         *   - Nada:
+         * Se encarga de mostrar la informacion de los objetos producto
+         * Devuelve:
+         *   - Nada, solamente muestra los productos. 
+    */
+    std::cout << "Nombre: " << get_nompro() << "\n";
+    std::cout << "Descripción: " << get_despro() << "\n";
+    std::cout << "Cantidad disponible: " << get_canpro() << "\n";
+    std::cout << "Fecha de producción: " << get_fecpro() << "\n";
+    std::cout << "Categoría: " << get_catego() << "\n";
+    std::cout << "Costo: $" << get_cospro() << "\n";
+    std::cout << "Fecha de expiracion: " << get_fecha_expiracion() << "\n";
+}
+#endif
